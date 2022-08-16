@@ -31,7 +31,6 @@ else {
 
 let ingresar_valor;
 
-
 while (ingresar_valor != "SALIR"){
 
         ingresar_valor = prompt("Ingrese 1 para cuotas sin interes Ingrese 2 para cuotas con interes");
@@ -45,7 +44,7 @@ let precio_sin_interes = cuotas_sin_interes(ingresar_precio, ingresar_cuotas);
 
 if (isNaN(ingresar_precio) == false && isNaN(ingresar_cuotas) == false)
 {
-
+        console.log("----------------------------CUOTAS SIN INTERES----------------------------");
 for (let i = 1; i <= ingresar_cuotas; i++){
         console.log("La cuota sin interes, N", i, "Tiene un valor de", "$", precio_sin_interes);
 }
@@ -59,14 +58,15 @@ else{
 else if (parseInt(ingresar_valor) === 2){
 
 
-ingresar_precio = parseFloat(prompt("Ingrese un precio"));
-ingresar_cuotas = parseInt(prompt("Ingresar cuotas"));
+let ingresar_precio = parseFloat(prompt("Ingrese un precio"));
+let ingresar_cuotas = parseInt(prompt("Ingresar cuotas"));
 let  ingresar_interes = parseInt(prompt("Ingresar el interes"));
 
 let precio_con_interes = cuotas_con_interes(ingresar_precio, ingresar_cuotas, ingresar_interes);
 
 if (isNaN(ingresar_precio) == false && isNaN(ingresar_cuotas) == false && isNaN(ingresar_interes) == false)
 {
+        console.log("----------------------------CUOTAS CON INTERES----------------------------");
 for (let i = 1; i <= ingresar_cuotas; i++){
         console.log("La cuota con interes, N", i, "Tiene un valor de", "$", precio_con_interes);
         console.log("En base a un interes de %", ingresar_interes);
@@ -78,11 +78,15 @@ else{
 
 }
 
-else {
-        alert("SOLO PUEDES PONER 1 O 2, PARA SALIR ESCRIBRE 'SALIR'")
-       continue;
+else{
+        if(ingresar_valor != "SALIR"){
+                alert("SOLO PUEDES PONER 1 O 2, PARA SALIR ESCRIBRE 'SALIR'")
+                continue;
+        }
+        else{
+                alert("Para volver a usarlo reinicie la pagina, gracias")
+        }
 }
-
 }
 
 
