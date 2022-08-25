@@ -75,29 +75,23 @@ function generar_producto(){
     new_producto.show_producto();
 }
 
-
 function menu_opciones(valor){
-    if (valor == 1){
-        let valor_menu = prompt("Para CREAR un producto ingrese '1', para BUSCAR un producto ingrese '2', para salir ingrese '0'");
-        while (valor_menu != "0"){
-            if (valor_menu == 1){
-                generar_producto();
-            }
-            else if (valor_menu == 2){
-                buscar_producto(lista_productos);
-            }
-        break;
+    while(valor != "0"){
+        valor = prompt("Para generar un producto ingrese '1' - Para buscar un producto ingrese '2' - Para salir del menu ingrese '0'");
+        if(valor == 1){
+            generar_producto();
+        }
+        else if(valor == 2){
+            buscar_producto(lista_productos);
+        }
+        else if(valor == 0) break;
+        else{
+            continue;
         }
     }
-    else{
-        return alert("Gracias por usar el generador de productos");
+}
+
+let ingresar_valor = prompt("Para ver el menu ingrese '1'");
+    if (ingresar_valor == 1){
+        menu_opciones(ingresar_valor);
     }
-}
-
-alert("Bienvenido al menu de opciones");
-let valor = prompt("Para ver el MENU DE OPCIONES ingrese '1' - Para retirarse ingrese 'SALIR'");
-while (valor != "SALIR"){
-    menu_opciones(valor);
-}
-
-
