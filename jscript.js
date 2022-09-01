@@ -136,4 +136,8 @@ let ingresar_valor = prompt("Para ver el menu ingrese '1'");
         menu_opciones(ingresar_valor);
     }
 
+// EMPEZANDO CODIGO PARA SIMULADOR HTML
 
+function boton_generar(){
+
+}
