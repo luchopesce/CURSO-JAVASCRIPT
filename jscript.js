@@ -131,13 +131,15 @@ function menu_opciones(valor){
     }
 }
 
-let ingresar_valor = prompt("Para ver el menu ingrese '1'");
-    if (ingresar_valor == 1){
-        menu_opciones(ingresar_valor);
-    }
 
 // EMPEZANDO CODIGO PARA SIMULADOR HTML
 
-function boton_generar(){
+let boton_generar = document.getElementById("btn_generar");
 
-}
+boton_generar.addEventListener('click', function(){
+
+    let ingresar_valor = prompt("Para ver el menu ingrese '1'");
+    if (ingresar_valor == 1){
+        menu_opciones(ingresar_valor);
+    }
+});
