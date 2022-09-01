@@ -72,8 +72,8 @@ function generar_random_id(arr){
     }
 }
 
-function validate_str(val){
-    var regex = /^[a-zA-Z]+$/.test(val);
+function validate_str(value){
+    var regex = /^[a-zA-Z]+$/.test(value);
     return regex;
 }
 
@@ -106,33 +106,16 @@ function generar_producto(){
     let newLocal = ['Los datos ingresados para el nuevo producto es: \n', 'ID: ', random_id, '\n', 'Nombre del producto: ', nombre_producto, '\n', 'Precio del producto: ', precio_producto, '\n', 'Stock del producto: ', stock_producto];
     if (confirm(newLocal.join(''))){
         lista_productos.push(new_producto);
-        new_producto.show_producto();
+
+        let main_producto = document.getElementById("main");
+        let div_producto = document.createElement("div");
+        div_producto.innerHTML = `<h2> Producto creado </h2>
+                                    <p class="p-1 m-0"> ID: ${random_id} </p>
+                                    <p class="p-1 m-0"> Nombre del producto: ${nombre_producto} </p>`;
+        main_producto.append(div_producto);
     }
     else{
         return;
-    }
-}
-
-
-function menu_opciones(valor){
-    while(valor != 0){
-        valor = prompt("Para generar un producto ingrese '1'  \nPara buscar un producto ingrese '2'  \nPara salir del menu ingrese '0'");
-        if(valor == 1){
-            generar_producto();
-        }
-        else if(valor == 2){
-            if(lista_productos == ""){
-                alert("Todavia no existe ningun producto");
-                continue;
-            }
-            else{
-                buscar_producto(lista_productos);
-            }
-        }
-        else if(valor == 0) break;
-        else{
-            continue;
-        }
     }
 }
 
@@ -144,3 +127,10 @@ let boton_generar = document.getElementById("btn_generar");
 boton_generar.addEventListener('click', function(){
     generar_producto();
 });
+
+let boton_buscar = document.getElementById("btn_buscar");
+
+boton_buscar.addEventListener('click', function(){
+    buscar_producto(lista_productos);
+});
+
