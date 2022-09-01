@@ -72,9 +72,14 @@ function generar_random_id(arr){
     }
 }
 
+function validate_str(val){
+    var regex = /^[a-zA-Z]+$/.test(val);
+    return regex;
+}
+
 function generar_producto(){
     let nombre_producto = prompt("Ingrese el nombre del producto:");
-    while(nombre_producto == ""){
+    while(typeof nombre_producto != "string" || validate_str(nombre_producto) == false){
         alert("Debes ingresar algun dato \nPara volver al menu ingrese 'VOLVER'");
         nombre_producto = prompt("Ingrese el nombre del producto:");
         if(nombre_producto == "VOLVER") return;
@@ -137,9 +142,5 @@ function menu_opciones(valor){
 let boton_generar = document.getElementById("btn_generar");
 
 boton_generar.addEventListener('click', function(){
-
-    let ingresar_valor = prompt("Para ver el menu ingrese '1'");
-    if (ingresar_valor == 1){
-        menu_opciones(ingresar_valor);
-    }
+    generar_producto();
 });
