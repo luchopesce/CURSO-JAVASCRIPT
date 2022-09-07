@@ -1,6 +1,8 @@
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
     'use strict'
+
+    feather.replace({ 'aria-hidden': 'true' })
   
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.querySelectorAll('.needs-validation')
@@ -17,8 +19,7 @@
       }, false)
     })
   })()
-
-
+  
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
